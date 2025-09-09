@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1051367927550",
+    "project_id": "friendly-tower-470411-t3",
+    "storage_bucket": "friendly-tower-470411-t3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051367927550:android:dd635591976ed97671bfaf",
+        "android_client_info": {
+          "package_name": "com.example.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9JuzUljYJRp-iZ-3i95c_R3rE4B7nYnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
