@@ -7,7 +7,7 @@
 <meta name="description" content="Adham Bassiouny, Junior Flutter Developer in Cairo. Cross-platform apps with Flutter, Bloc/Cubit, Clean Architecture, Firebase and Supabase.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Outfit:wght@300..800&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Outfit:wght@300..800&family=Permanent+Marker&family=Lalezar&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Single deep-teal world with a cream accent; brush display type over a clean sans. Layout: loose, collage-like sections on a 1200px column. */
@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:clip}
+body{transition:background-color .4s,color .4s;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:clip}
 .hero,.marquee-wrap{overflow:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -88,7 +88,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .photo{position:relative;background:var(--lime);border-radius:40px;overflow:hidden;transform:rotate(-3deg);transition:transform .4s}
 .photo:hover{transform:rotate(0) scale(1.02)}
 .photo img{width:100%;aspect-ratio:1;object-fit:cover}
-.tag{position:absolute;left:18px;bottom:18px;background:var(--on-lime);color:var(--lime);font-family:var(--hand);font-size:22px;padding:6px 16px;border-radius:999px;transform:rotate(3deg)}
+.tag{position:absolute;inset-inline-start:18px;bottom:18px;background:var(--on-lime);color:var(--lime);font-family:var(--hand);font-size:22px;padding:6px 16px;border-radius:999px;transform:rotate(3deg)}
 .about p.big{font-size:clamp(19px,2vw,22px);margin:18px 0 28px;max-width:60ch}
 .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .fact{background:var(--card);border-radius:20px;padding:18px 20px}
@@ -98,7 +98,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 /* experience */
 .exp{background:var(--bg-2)}
 .exp-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:40px}
-.role-card{background:var(--card);border-radius:var(--r);padding:clamp(24px,4vw,40px);border-left:8px solid var(--lime)}
+.role-card{background:var(--card);border-radius:var(--r);padding:clamp(24px,4vw,40px);border-inline-start:8px solid var(--lime)}
 .role-card h3{font-size:clamp(22px,3vw,30px);font-weight:700}
 .role-card .when{color:var(--muted);margin:6px 0 28px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -114,8 +114,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .proj .sub{font-weight:700;font-size:20px;margin-bottom:12px}
 .proj p.desc{color:var(--muted);margin-bottom:14px;max-width:52ch}
 .proj ul{list-style:none;display:grid;gap:8px;margin-bottom:20px}
-.proj li{padding-left:28px;position:relative}
-.proj li::before{content:"";position:absolute;left:4px;top:.6em;width:12px;height:12px;background:var(--lime);border-radius:3px;transform:rotate(45deg)}
+.proj li{padding-inline-start:28px;position:relative}
+.proj li::before{content:"";position:absolute;inset-inline-start:4px;top:.6em;width:12px;height:12px;background:var(--lime);border-radius:3px;transform:rotate(45deg)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--chip);color:var(--lime);font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px}
 .badge{display:inline-block;background:var(--lime);color:var(--on-lime);font-weight:700;font-size:13px;padding:4px 12px;border-radius:999px;margin-left:8px;vertical-align:middle;animation:pulse 2.2s ease-in-out infinite}
@@ -158,7 +158,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 a.cl:hover{transform:translateX(8px);background:var(--chip)}
 .cl b{color:var(--lime);font-size:13px;letter-spacing:2px;width:86px;flex:none}
 .cl span{word-break:break-all}
-.copy{margin-left:auto;background:none;border:1.5px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 14px;font:600 13px var(--body);cursor:pointer}
+.copy{margin-inline-start:auto;background:none;border:1.5px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 14px;font:600 13px var(--body);cursor:pointer}
 .copy:hover{border-color:var(--lime);color:var(--lime)}
 .contact .stage{width:min(340px,100%)}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:15px}
@@ -180,6 +180,59 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @keyframes pulse{50%{transform:scale(1.07)}}
 @keyframes flow{to{background-position:0 10px}}
 
+
+/* light mode (Hot Reload) */
+html[data-mode="light"]{--bg:#F4F1E4;--bg-2:#EAE3C9;--card:#FFFCF2;--chip:#DCEBEF;--line:#C5D6DB;--lime:#1B4B5A;--ink:#143E4B;--muted:#4C6D77;--on-lime:#F4F1E4;color-scheme:light}
+html[data-mode="light"] .phones img,html[data-mode="light"] .stage .char{filter:drop-shadow(0 18px 24px rgba(20,62,75,.25))}
+/* Arabic */
+html[lang="ar"]{--display:'Lalezar','Permanent Marker',cursive;--hand:'Lalezar','Caveat Brush',cursive;--body:'Tajawal','Outfit',system-ui,sans-serif}
+html[lang="ar"] .hero h1{letter-spacing:0}
+html[lang="ar"] .hand{font-size:clamp(22px,2.2vw,28px)}
+html[dir="rtl"] .hey svg{transform:scaleX(-1)}
+html[dir="rtl"] a.cl:hover{transform:translateX(-8px)}
+
+/* nav tools */
+.tools{display:flex;gap:10px;align-items:center}
+.iconbtn{height:42px;min-width:42px;padding:0 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:700 16px var(--body);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,transform .2s}
+.iconbtn:hover{border-color:var(--lime);transform:translateY(-2px)}
+
+/* hot reload */
+.hr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;background:var(--lime);color:var(--on-lime);border:none;border-radius:999px;padding:13px 18px;font:800 16px 'Outfit',system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .2s}
+.hr-fab:hover{transform:translateY(-3px) scale(1.04)}
+.hr-fab svg{width:20px;height:20px;fill:currentColor}
+.hr-fab .k{font-size:12px;opacity:.75;border:1.5px solid currentColor;border-radius:6px;padding:0 6px;line-height:18px}
+html[dir="rtl"] .hr-fab{right:auto;left:20px}
+.flash{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--fx,95%) var(--fy,95%),#FFF8DC 0,rgba(237,230,196,.85) 25%,transparent 70%)}
+.flash.go{animation:flash .6s ease-out}
+.jolt header,.jolt section{animation:jolt .45s cubic-bezier(.3,1.6,.5,1)}
+.toast{position:fixed;left:50%;bottom:90px;z-index:95;transform:translate(-50%,20px);opacity:0;background:#0E2A33;color:#EDE6C4;font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:12px 18px;border-radius:12px;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;unicode-bidi:plaintext;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes flash{0%{opacity:1}100%{opacity:0}}
+@keyframes jolt{0%{transform:translateY(0)}35%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+/* flutter run boot screen */
+#boot{position:fixed;inset:0;z-index:100;background:#0E2A33;color:#D6E4E8;direction:ltr;font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;transition:opacity .45s,transform .45s}
+#boot.out{opacity:0;transform:scale(1.04);pointer-events:none}
+#boot .term{width:min(640px,100%);background:#0A2129;border:1px solid #2C6779;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#boot .bar{display:flex;gap:7px;padding:12px 14px;background:#12333E;align-items:center}
+#boot .bar i{width:11px;height:11px;border-radius:50%;background:#3E7C8E}
+#boot .bar span{margin-left:10px;color:#7FA3AE;font-size:12px}
+#boot pre{padding:18px 20px;min-height:220px;white-space:pre-wrap;word-break:break-word;margin:0;font:inherit}
+#boot .ok{color:#8FE0B0}#boot .c{color:#EDE6C4}#boot .dim{color:#7FA3AE}
+#boot .cur{display:inline-block;width:8px;height:15px;background:#EDE6C4;vertical-align:-2px;animation:caret 1s steps(1) infinite}
+#boot .skip{color:#7FA3AE;font:14px 'Outfit',system-ui,sans-serif;background:none;border:none;cursor:pointer;text-decoration:underline}
+
+/* waving character */
+.hero .stage{cursor:pointer}
+.stage .wave{position:absolute;top:13%;right:12%;font-size:clamp(40px,5vw,58px);line-height:1;transform-origin:70% 85%;opacity:0;transform:scale(.3);transition:opacity .25s,transform .3s;pointer-events:none;z-index:3}
+.hero .stage:hover .wave,.hero .stage.waving .wave{opacity:1;transform:scale(1);animation:wave 1s ease-in-out infinite}
+.hero .stage:hover .char,.hero .stage.waving .char{animation:hop 1s ease-in-out infinite}
+.bubble .b2{display:none}
+.hero .stage:hover .bubble .b1,.hero .stage.waving .bubble .b1{display:none}
+.hero .stage:hover .bubble .b2,.hero .stage.waving .bubble .b2{display:inline}
+@keyframes wave{0%,100%{transform:rotate(0)}20%{transform:rotate(24deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(20deg)}80%{transform:rotate(-6deg)}}
+@keyframes hop{0%,100%{transform:translateX(-50%) translateY(0) rotate(0)}30%{transform:translateX(-50%) translateY(-18px) rotate(-2deg)}60%{transform:translateX(-50%) translateY(0) rotate(1.5deg)}}
+
 @media (max-width:900px){
   .links{display:none}
   .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
@@ -197,6 +250,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .grid3,.edu,.facts{grid-template-columns:1fr}
   .phones img{width:31%}
   .nav-cta{display:none}
+  .hr-fab .lbl{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -217,7 +271,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="btn solid sm nav-cta" href="#contact">Hire me</a>
+    <div class="tools"><button class="iconbtn" id="langBtn" type="button" aria-label="Switch language to Arabic" title="عربي / English">ع</button><a class="btn solid sm nav-cta" href="#contact">Hire me</a></div>
   </div>
 </nav>
 
@@ -230,19 +284,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       </div>
       <h1><span class="name">ADHAM</span></h1>
       <svg class="underline" viewBox="0 0 400 40" aria-hidden="true"><path d="M8 26Q110 6 210 22T392 14" stroke="#EDE6C4" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
-      <p class="role">Flutter Developer · <span class="typed" id="typed">Clean Architecture</span></p>
+      <p class="role"><span>Flutter Developer ·</span> <span class="typed" id="typed">Clean Architecture</span></p>
       <p class="lead">I build cross-platform mobile apps for Android and iOS with Flutter and Dart — clean, testable code with Bloc/Cubit, REST APIs, Firebase and Supabase. Based in Cairo, Egypt.</p>
       <div class="cta">
-        <a class="btn solid" href="#projects">View projects
+        <a class="btn solid" href="#projects"><span>View projects</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         <a class="btn ghost" href="Adham-Bassiouny-Flutter-CV.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
-      <div class="scroll-hint"><span class="mouse" aria-hidden="true"></span>Scroll down</div>
+      <div class="scroll-hint"><span class="mouse" aria-hidden="true"></span><span>Scroll down</span></div>
     </div>
     <div class="stage">
       <div class="blob"></div>
       <img class="char" src="img/character.webp" alt="3D cartoon avatar of Adham wearing a Flutter t-shirt" width="580" height="1486">
-      <div class="bubble">Let's build something awesome!</div>
+      <div class="bubble"><span class="b1">Let's build something awesome!</span><span class="b2">Hi there!</span></div>
+      <span class="wave" aria-hidden="true">👋</span>
       <svg class="deco star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z" fill="#EDE6C4"/></svg>
       <svg class="deco squig" viewBox="0 0 200 60" aria-hidden="true"><path d="M5 40C30 5 50 55 75 25s45-20 65 10 45 15 55-20" stroke="#EDE6C4" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
     </div>
@@ -426,6 +481,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap"><span>© 2026 Adham Bassiouny</span><span>Built with care in Cairo · Flutter Developer</span></div>
 </footer>
 
+<button class="hr-fab" id="hrBtn" type="button" title="Hot reload (press R)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg><span class="lbl">Hot Reload</span><span class="k">R</span></button>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
 (function(){
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -442,12 +501,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
   // typed roles
-  var roles = ['Clean Architecture','Bloc / Cubit','Firebase & Supabase','Android & iOS'];
+  var ROLES = {en:['Clean Architecture','Bloc / Cubit','Firebase & Supabase','Android & iOS'], ar:['Clean Architecture','Bloc / Cubit','Firebase و Supabase','أندرويد و iOS']};
+  var roles = ROLES.en;
+  window.__setRoles = function(l){ roles = ROLES[l] || ROLES.en; };
   var el = document.getElementById('typed');
   if (!reduce && el){
     var i = 0, j = roles[0].length, del = true;
     setTimeout(function tick(){
-      var w = roles[i];
+      if (i >= roles.length) i = 0; var w = roles[i];
       if (del){ j--; if (j <= 0){ del = false; i = (i+1) % roles.length; } }
       else { j++; if (j >= roles[i].length){ del = true; el.textContent = roles[i]; return setTimeout(tick, 1800); } }
       el.textContent = roles[i].slice(0, Math.max(j,0)) || ' ';
@@ -483,7 +544,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   // copy buttons
   document.querySelectorAll('.copy').forEach(function(b){
     b.addEventListener('click', function(){
-      var done = function(){ b.textContent = 'Copied!'; setTimeout(function(){ b.textContent = 'Copy'; }, 1500); };
+      var ar = document.documentElement.lang === 'ar'; var done = function(){ b.textContent = ar ? 'اتنسخ!' : 'Copied!'; setTimeout(function(){ b.textContent = document.documentElement.lang === 'ar' ? 'نسخ' : 'Copy'; }, 1500); };
       try { navigator.clipboard.writeText(b.dataset.copy).then(done, function(){ b.textContent = 'Select & copy'; }); }
       catch(e){ b.textContent = 'Select & copy'; }
     });
@@ -496,6 +557,139 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       var x = (e.clientX / innerWidth - .5) * 10, y = (e.clientY / innerHeight - .5) * 10;
       stage.style.transform = 'translate(' + x + 'px,' + y + 'px)';
     });
+  }
+})();
+</script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e){ return null; } }
+
+  /* ---------- Arabic / English ---------- */
+  var AR = {
+    "About":"عني","Experience":"الخبرة","Projects":"المشاريع","Skills":"المهارات","Contact":"تواصل","Hire me":"وظّفني",
+    "Hey there, I'm":"أهلاً، أنا",
+    "ADHAM":"<span class=\"name\">أدهم</span>",
+    "Flutter Developer ·":"مطوّر Flutter ·",
+    "I build cross-platform mobile apps for Android and iOS with Flutter and Dart — clean, testable code with Bloc/Cubit, REST APIs, Firebase and Supabase. Based in Cairo, Egypt.":"أبني تطبيقات موبايل لأندرويد و iOS باستخدام Flutter و Dart — كود نظيف وسهل الاختبار مع Bloc/Cubit و REST APIs و Firebase و Supabase. مقيم في القاهرة، مصر.",
+    "View projects":"شوف المشاريع","Download CV":"حمّل السيرة الذاتية","Scroll down":"انزل لتحت",
+    "Let's build something awesome!":"يلا نبني حاجة تجنن!","Hi there!":"أهلاً بيك!","Thank you!":"شكرًا!",
+    "Junior Flutter Dev":"مطوّر Flutter",
+    "about me":"عني","Hello, I'm Adham!":"أهلاً، أنا أدهم!",
+    "I turn ideas into smooth mobile apps. I care about clean architecture, reusable widgets and code that is easy to test — and I've shipped 5 apps covering auth, maps, payments, push notifications, offline mode and AI receipt scanning.":"بحوّل الأفكار لتطبيقات موبايل سلسة. بهتم بالـ Clean Architecture والـ widgets اللي بتتعاد في أكتر من مكان والكود السهل في الاختبار — وبنيت 5 تطبيقات فيها تسجيل دخول، وخرائط، ودفع، وإشعارات، ووضع أوفلاين، ومسح فواتير بالذكاء الاصطناعي.",
+    "Location":"الموقع","Cairo, Egypt":"القاهرة، مصر","Education":"التعليم","BSc Computer Science, MTI University":"بكالوريوس علوم الحاسب، جامعة MTI","Training":"التدريب","Flutter Bootcamp, e_Youth (2025)":"Flutter Bootcamp من e_Youth (2025)","Languages":"اللغات","Arabic (native) · English (B2)":"العربية (اللغة الأم) · الإنجليزية (B2)",
+    "where I've worked":"اشتغلت فين",
+    "Flutter Developer Intern — Huma Volve, Cairo":"متدرّب مطوّر Flutter — <span class=\"lime\">Huma Volve</span>، القاهرة",
+    "Mar 2026 – Jul 2026 · Agile team with weekly code reviews by senior developers":"مارس 2026 – يوليو 2026 · فريق Agile مع code review أسبوعي من مطورين Senior",
+    "Reusable UI components shared across 2 apps":"مكوّن UI بيتعاد استخدامه في تطبيقين","REST API endpoints integrated with Dio":"REST API endpoint اتربطت بـ Dio","Feature modules built with Bloc/Cubit":"Feature module اتبنت بـ Bloc/Cubit","Apps delivered: Grocery App & HabiSpace":"تطبيقين اتسلّموا: Grocery App و HabiSpace",
+    "what I built":"اللي بنيته","Featured projects":"أبرز المشاريع",
+    "01 — personal project":"01 — مشروع شخصي","02 — personal project":"02 — مشروع شخصي","03 — personal project":"03 — مشروع شخصي","04 — internship project · Huma Volve":"04 — مشروع تدريب · Huma Volve","05 — internship project · Huma Volve":"05 — مشروع تدريب · Huma Volve",
+    "Soon on Google Play":"قريبًا على Google Play",
+    "Smart warranty management app":"تطبيق ذكي لإدارة الضمانات","Food delivery app · Arabic RTL":"تطبيق توصيل أكل · عربي RTL","Role-based appointment booking app":"تطبيق حجز مواعيد للمريض والدكتور","Real estate app":"تطبيق عقارات","E-commerce grocery app":"تطبيق بقالة أونلاين",
+    "Tracks products, receipts, warranty periods and return windows, with calendar reminders before a warranty expires.":"بيتابع المنتجات والفواتير ومدد الضمان وفترات الاسترجاع، وبيفكّرك في التقويم قبل ما الضمان يخلص.",
+    "AI receipt scanning backed by 2 Supabase Edge Functions":"مسح الفواتير بالذكاء الاصطناعي باستخدام 2 Supabase Edge Functions","Google Sign-In, biometric login and offline mode":"تسجيل دخول بجوجل وبالبصمة ووضع أوفلاين","Full Arabic / English localization with skeleton loading":"دعم كامل للعربي والإنجليزي مع skeleton loading",
+    "Location-based ordering with a full cart-to-checkout flow across 15+ screens, built with Clean Architecture.":"طلبات حسب موقعك مع رحلة كاملة من السلة للدفع في أكتر من 15 شاشة، مبني بـ Clean Architecture.",
+    "3 sign-in methods: email, Google and Facebook":"3 طرق تسجيل دخول: إيميل وجوجل وفيسبوك","Google Maps and Geolocator for the delivery location":"Google Maps و Geolocator لتحديد مكان التوصيل","Typed API layer with Retrofit and Dio":"طبقة API منظمة بـ Retrofit و Dio",
+    "Two dashboards — Patient and Doctor — managing 15+ doctor and patient profiles in Cloud Firestore.":"لوحتين تحكم — للمريض وللدكتور — بتديروا أكتر من 15 بروفايل في Cloud Firestore.",
+    "Separate role-based flows for patients and doctors":"رحلة مختلفة لكل من المريض والدكتور","Profile image uploads to Supabase Storage":"رفع صور البروفايل على Supabase Storage","Clean Architecture with Bloc/Cubit":"Clean Architecture مع Bloc/Cubit",
+    "Map-based property search with 3D previews, push notifications and in-app payments.":"بحث عن العقارات على الخريطة مع معاينة 3D وإشعارات ودفع جوه التطبيق.",
+    "Property search on an interactive map (flutter_map)":"بحث عن العقارات على خريطة تفاعلية (flutter_map)","Push notifications with FCM and deep linking":"إشعارات بـ FCM و deep linking","Stripe-powered payments":"دفع أونلاين بـ Stripe",
+    "OTP sign-in and image uploads, backed by a CI pipeline that tests every push.":"تسجيل دخول بـ OTP ورفع صور، ومعاه CI pipeline بيختبر كل push.",
+    "OTP authentication with Pinput":"تسجيل دخول بـ OTP باستخدام Pinput","Secure Storage, GetIt DI and skeleton loading":"Secure Storage و GetIt DI و skeleton loading","Unit and widget tests on every push":"اختبارات Unit و widget مع كل push",
+    "Lint and static checks":"فحص الكود (lint)","Unit and widget tests":"اختبارات unit و widget","Release build, ready to ship":"نسخة release جاهزة للنشر",
+    "what I work with":"بشتغل بإيه",
+    "Architecture & State":"المعمارية وإدارة الحالة","Networking & APIs":"الشبكات والـ APIs","Backend & Data":"الباك إند والبيانات","Auth & Security":"تسجيل الدخول والأمان","Maps, AI & Payments":"الخرائط والذكاء الاصطناعي والدفع","Quality & Tools":"الجودة والأدوات",
+    "BSc Computer Science — MTI University, Cairo":"بكالوريوس علوم الحاسب — جامعة MTI، القاهرة","Flutter Development Bootcamp — e_Youth (remote)":"Flutter Bootcamp — e_Youth (أونلاين)","Flutter Developer Intern — Huma Volve":"متدرّب مطوّر Flutter — Huma Volve",
+    "say hello":"قول أهلاً",
+    "EMAIL":"الإيميل","PHONE":"الموبايل","Copy":"نسخ",
+    "© 2026 Adham Bassiouny":"© 2026 أدهم بسيوني","Built with care in Cairo · Flutter Developer":"معمول بحب في القاهرة · مطوّر Flutter"
+  };
+  var AR_H2 = {"Let's build something awesome!":"يلا نبني حاجة <span class=\"lime\">تجنن!</span>"};
+  var RICH = {"ADHAM":1,"Flutter Developer Intern — Huma Volve, Cairo":1};
+  var saved = [];
+  var norm = function(t){ return t.replace(/\s+/g,' ').trim(); };
+  var titles = {en:document.title, ar:'أدهم بسيوني — مطوّر Flutter'};
+  var langBtn = document.getElementById('langBtn');
+
+  function setLang(l, save){
+    if (l === (root.lang === 'ar' ? 'ar' : 'en')) { if (save) store('lang', l); return; }
+    if (l === 'ar'){
+      saved = [];
+      document.querySelectorAll('h1,h2,h3,h4,p,li,a,span,b,button.copy,div.bubble').forEach(function(el){
+        var k = norm(el.textContent), h2 = el.tagName === 'H2' && AR_H2[k], v = h2 || AR[k];
+        if (v && el.children.length && !h2 && !RICH[k]) return;
+        if (v){ saved.push([el, el.innerHTML]); el.innerHTML = v; }
+      });
+      root.lang = 'ar'; root.dir = 'rtl'; document.title = titles.ar;
+      langBtn.textContent = 'EN'; langBtn.setAttribute('aria-label','Switch language to English');
+    } else {
+      for (var i = saved.length - 1; i >= 0; i--) saved[i][0].innerHTML = saved[i][1];
+      saved = [];
+      root.lang = 'en'; root.dir = 'ltr'; document.title = titles.en;
+      langBtn.textContent = 'ع'; langBtn.setAttribute('aria-label','Switch language to Arabic');
+    }
+    if (window.__setRoles) window.__setRoles(l);
+    if (save) store('lang', l);
+  }
+  langBtn.addEventListener('click', function(){ setLang(root.lang === 'ar' ? 'en' : 'ar', true); });
+  if (store('lang') === 'ar') setLang('ar');
+
+  /* ---------- Hot Reload ---------- */
+  var flash = document.getElementById('flash'), toast = document.getElementById('toast'), hr = document.getElementById('hrBtn');
+  if (store('mode') === 'light') root.setAttribute('data-mode','light');
+  var tt;
+  function hotReload(x, y){
+    var light = root.getAttribute('data-mode') !== 'light';
+    if (light) root.setAttribute('data-mode','light'); else root.removeAttribute('data-mode');
+    store('mode', light ? 'light' : 'dark');
+    var ms = 180 + Math.floor(Math.random() * 160);
+    if (!reduce){
+      flash.style.setProperty('--fx', (x != null ? x : innerWidth - 60) + 'px');
+      flash.style.setProperty('--fy', (y != null ? y : innerHeight - 40) + 'px');
+      flash.classList.remove('go'); void flash.offsetWidth; flash.classList.add('go');
+      document.body.classList.remove('jolt'); void document.body.offsetWidth; document.body.classList.add('jolt');
+    }
+    toast.textContent = root.lang === 'ar' ? '⚡ تم الـ Hot Reload في ' + ms + 'ms' : '⚡ Reloaded 1 of 1 libraries in ' + ms + 'ms';
+    toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+  hr.addEventListener('click', function(e){ hotReload(e.clientX, e.clientY); });
+  addEventListener('keydown', function(e){
+    if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey && !e.altKey && !/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) hotReload();
+  });
+
+  /* ---------- Waving character (tap on phones) ---------- */
+  var st = document.querySelector('.hero .stage'), wt;
+  if (st) st.addEventListener('click', function(){ st.classList.add('waving'); clearTimeout(wt); wt = setTimeout(function(){ st.classList.remove('waving'); }, 2600); });
+
+  /* ---------- flutter run boot screen (once per visit) ---------- */
+  var seen = null; try { seen = sessionStorage.getItem('booted'); } catch(e){}
+  if (!reduce && !seen){
+    try { sessionStorage.setItem('booted','1'); } catch(e){}
+    var boot = document.createElement('div'); boot.id = 'boot'; boot.setAttribute('aria-hidden','true');
+    boot.innerHTML = '<div class="term"><div class="bar"><i></i><i></i><i></i><span>adham@portfolio: ~</span></div><pre id="bootTxt"></pre></div><button class="skip" type="button">Skip</button>';
+    document.body.appendChild(boot);
+    var pre = boot.querySelector('#bootTxt');
+    var lines = [
+      ['<span class="c">$</span> flutter run -d chrome', 260],
+      ['<span class="dim">Launching lib/main.dart on Chrome in release mode...</span>', 220],
+      ['Resolving dependencies... <span class="ok">✓</span>', 200],
+      ['Compiling <span class="c">Adham Bassiouny</span> — Flutter Developer', 240],
+      ['<span class="ok">✓ Built build/web</span> <span class="dim">(1.2s)</span>', 220],
+      ['', 60],
+      ['Flutter run key commands.', 120],
+      ['<span class="c">r</span> Hot reload. 🔥', 380]
+    ];
+    var html = '', n = 0, done = false;
+    function finish(){ if (done) return; done = true; boot.classList.add('out'); setTimeout(function(){ boot.remove(); }, 500); }
+    (function next(){
+      if (done) return;
+      if (n >= lines.length) return setTimeout(finish, 250);
+      html += lines[n][0] + '\n'; pre.innerHTML = html + '<span class="cur"></span>';
+      setTimeout(next, lines[n++][1]);
+    })();
+    boot.addEventListener('click', finish);
+    setTimeout(finish, 4000);
   }
 })();
 </script>
