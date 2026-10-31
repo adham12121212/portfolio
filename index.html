@@ -233,6 +233,25 @@ html[dir="rtl"] .hr-fab{right:auto;left:20px}
 @keyframes wave{0%,100%{transform:rotate(0)}20%{transform:rotate(24deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(20deg)}80%{transform:rotate(-6deg)}}
 @keyframes hop{0%,100%{transform:translateX(-50%) translateY(0) rotate(0)}30%{transform:translateX(-50%) translateY(-18px) rotate(-2deg)}60%{transform:translateX(-50%) translateY(0) rotate(1.5deg)}}
 
+/* extras: ripple, peek-to-top, phone tilt, floating code */
+.ripple{position:fixed;z-index:98;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;pointer-events:none;background:var(--lime);opacity:.35;animation:ripple .6s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes ripple{to{transform:scale(9);opacity:0}}
+.peek{position:fixed;left:24px;bottom:-12px;z-index:59;width:96px;height:96px;padding:0;border:none;background:none;cursor:pointer;transform:translateY(110%) rotate(8deg);transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.peek.on{transform:translateY(42%) rotate(8deg)}
+.peek:hover,.peek:focus-visible{transform:translateY(8%) rotate(0)}
+.peek img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.peek .tip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--on-lime);font:700 13px var(--body);padding:6px 12px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.peek:hover .tip,.peek:focus-visible .tip{opacity:1}
+html[dir="rtl"] .peek{left:auto;right:24px;transform:translateY(110%) rotate(-8deg)}
+html[dir="rtl"] .peek.on{transform:translateY(42%) rotate(-8deg)}
+html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:translateY(8%) rotate(0)}
+.phones{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;transform-style:preserve-3d}
+.codefx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.codefx span{position:absolute;font:600 clamp(13px,1.3vw,17px) ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--lime);opacity:.13;white-space:nowrap;animation:drift var(--d,14s) ease-in-out var(--dl,0s) infinite alternate}
+@keyframes drift{from{transform:translate(0,0) rotate(var(--r,0deg))}to{transform:translate(var(--dx,20px),-46px) rotate(var(--r,0deg))}}
+.hero .wrap{position:relative;z-index:1}
+@media (max-width:560px){.peek{width:76px;height:76px;left:14px}.codefx span:nth-child(n+8){display:none}}
+
 @media (max-width:900px){
   .links{display:none}
   .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
@@ -481,6 +500,7 @@ html[dir="rtl"] .hr-fab{right:auto;left:20px}
   <div class="wrap"><span>© 2026 Adham Bassiouny</span><span>Built with care in Cairo · Flutter Developer</span></div>
 </footer>
 
+<button class="peek" id="peek" type="button" aria-label="Back to top"><span class="tip">Back to top ↑</span><img src="img/head.webp" alt="" width="420" height="420"></button>
 <button class="hr-fab" id="hrBtn" type="button" title="Hot reload (press R)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg><span class="lbl">Hot Reload</span><span class="k">R</span></button>
 <div class="flash" id="flash"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -690,6 +710,55 @@ html[dir="rtl"] .hr-fab{right:auto;left:20px}
     })();
     boot.addEventListener('click', finish);
     setTimeout(finish, 4000);
+  }
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && matchMedia('(pointer:fine)').matches;
+  var ar = function(){ return document.documentElement.lang === 'ar'; };
+
+  // 1. InkWell-style ripple on every tap/click
+  if (!reduce) addEventListener('pointerdown', function(e){
+    var r = document.createElement('span'); r.className = 'ripple';
+    r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px';
+    document.body.appendChild(r); setTimeout(function(){ r.remove(); }, 650);
+  }, {passive:true});
+
+  // 2. Character peeks from the corner, click to go back to top
+  var pk = document.getElementById('peek'), tip = pk.querySelector('.tip');
+  function onS(){ pk.classList.toggle('on', scrollY > 700); }
+  addEventListener('scroll', onS, {passive:true}); onS();
+  pk.addEventListener('click', function(){ scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'}); });
+  pk.addEventListener('mouseenter', function(){ tip.textContent = ar() ? 'لفوق ↑' : 'Back to top ↑'; });
+  pk.addEventListener('focus', function(){ tip.textContent = ar() ? 'لفوق ↑' : 'Back to top ↑'; });
+
+  // 6. Phones tilt in 3D with the mouse
+  if (!reduce && fine) document.querySelectorAll('.phones').forEach(function(ph){
+    ph.addEventListener('mousemove', function(e){
+      var b = ph.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
+      ph.style.setProperty('--ry', (x * 18).toFixed(2) + 'deg'); ph.style.setProperty('--rx', (-y * 14).toFixed(2) + 'deg');
+    });
+    ph.addEventListener('mouseleave', function(){ ph.style.setProperty('--ry','0deg'); ph.style.setProperty('--rx','0deg'); });
+  });
+
+  // 9. Faint Dart code floating behind the hero
+  var hero = document.querySelector('.hero');
+  if (hero){
+    var words = ['setState(() {})','BlocBuilder<>','Widget build()','emit(state)','{ }','Future<void>','@override','async','await','Stream<T>','=>','GoRouter','const SizedBox()','flutter pub get','</>','Cubit'];
+    var box = document.createElement('div'); box.className = 'codefx'; box.setAttribute('aria-hidden','true');
+    var spots = [[4,8],[62,4],[38,14],[84,22],[10,34],[48,40],[90,52],[22,58],[70,66],[6,78],[56,82],[34,90],[80,88],[16,16],[44,64],[92,10]];
+    words.forEach(function(w, i){
+      var sp = document.createElement('span'); sp.textContent = w;
+      sp.style.left = spots[i][0] + '%'; sp.style.top = spots[i][1] + '%';
+      sp.style.setProperty('--d', (11 + (i * 7) % 9) + 's');
+      sp.style.setProperty('--dl', (-(i * 1.7) % 9).toFixed(1) + 's');
+      sp.style.setProperty('--dx', ((i % 2 ? 1 : -1) * (12 + i % 4 * 8)) + 'px');
+      sp.style.setProperty('--r', ((i % 3) - 1) * 4 + 'deg');
+      box.appendChild(sp);
+    });
+    hero.insertBefore(box, hero.firstChild);
   }
 })();
 </script>
