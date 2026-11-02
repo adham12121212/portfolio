@@ -193,8 +193,10 @@ html[dir="rtl"] a.cl:hover{transform:translateX(-8px)}
 
 /* nav tools */
 .tools{display:flex;gap:10px;align-items:center}
-.iconbtn{height:42px;min-width:42px;padding:0 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:700 16px var(--body);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,transform .2s}
+.iconbtn{width:44px;height:44px;flex:none;padding:0;border-radius:50%;line-height:1;border:2px solid var(--line);background:var(--card);color:var(--ink);font:700 16px var(--body);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,transform .2s}
 .iconbtn:hover{border-color:var(--lime);transform:translateY(-2px)}
+#langBtn{font-family:'Tajawal','Outfit',system-ui,sans-serif;font-size:21px;font-weight:800;padding-bottom:3px}
+#langBtn.en{font-family:'Outfit',system-ui,sans-serif;font-size:14px;letter-spacing:.5px;padding-bottom:0}
 
 /* hot reload */
 .hr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;background:var(--lime);color:var(--on-lime);border:none;border-radius:999px;padding:13px 18px;font:800 16px 'Outfit',system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .2s}
@@ -642,12 +644,12 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         if (v){ saved.push([el, el.innerHTML]); el.innerHTML = v; }
       });
       root.lang = 'ar'; root.dir = 'rtl'; document.title = titles.ar;
-      langBtn.textContent = 'EN'; langBtn.setAttribute('aria-label','Switch language to English');
+      langBtn.textContent = 'EN'; langBtn.classList.add('en'); langBtn.setAttribute('aria-label','Switch language to English');
     } else {
       for (var i = saved.length - 1; i >= 0; i--) saved[i][0].innerHTML = saved[i][1];
       saved = [];
       root.lang = 'en'; root.dir = 'ltr'; document.title = titles.en;
-      langBtn.textContent = 'ع'; langBtn.setAttribute('aria-label','Switch language to Arabic');
+      langBtn.textContent = 'ع'; langBtn.classList.remove('en'); langBtn.setAttribute('aria-label','Switch language to Arabic');
     }
     if (window.__setRoles) window.__setRoles(l);
     if (save) store('lang', l);
