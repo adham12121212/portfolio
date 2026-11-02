@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adham Bassiouny — Flutter Developer</title>
 <meta name="description" content="Adham Bassiouny, Junior Flutter Developer in Cairo. Cross-platform apps with Flutter, Bloc/Cubit, Clean Architecture, Firebase and Supabase.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#0A6CC4">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adham12121212.github.io/portfolio/">
+<meta property="og:title" content="Adham Bassiouny — Flutter Developer">
+<meta property="og:description" content="Junior Flutter Developer in Cairo. Cross-platform apps with Flutter, Bloc/Cubit, Clean Architecture, Firebase and Supabase.">
+<meta property="og:image" content="https://adham12121212.github.io/portfolio/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adham12121212.github.io/portfolio/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Outfit:wght@300..800&family=Permanent+Marker&family=Marhey:wght@400..700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -102,7 +114,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .role-card h3{font-size:clamp(22px,3vw,30px);font-weight:700}
 .role-card .when{color:var(--muted);margin:6px 0 28px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat .n{font-family:var(--display);color:var(--lime);font-size:clamp(48px,6vw,72px);line-height:1;font-variant-numeric:tabular-nums}
+.stat .n{font-family:var(--display);color:var(--lime);font-size:clamp(26px,2.6vw,34px);line-height:1.1}
 .stat p{color:var(--muted);font-size:16px;margin-top:8px}
 
 /* projects */
@@ -255,6 +267,14 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
 .hero .wrap{position:relative;z-index:1}
 @media (max-width:560px){.peek{width:76px;height:76px;left:14px}.codefx span:nth-child(n+8){display:none}}
 
+.code-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 18px;border:2px solid var(--lime);border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:background .2s,color .2s,transform .2s}
+.code-link svg{width:18px;height:18px;fill:currentColor}
+.code-link:hover{background:var(--lime);color:var(--on-lime);transform:translateY(-2px)}
+.otw{display:inline-flex;align-items:center;gap:8px;margin-inline-start:10px;padding:5px 12px;border-radius:999px;background:var(--card);border:1.5px solid var(--line);font:600 14px var(--body);color:var(--ink)}
+.otw i{width:9px;height:9px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.hey{flex-wrap:wrap}
+
 @media (max-width:900px){
   .links{display:none}
   .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
@@ -274,6 +294,13 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
   .nav-cta{display:none}
   .hr-fab .lbl{display:none}
 }
+@media (max-width:900px){
+  .peek{display:none}
+  .hr-fab{width:52px;height:52px;padding:0;justify-content:center;border-radius:50%;right:16px;bottom:16px}
+  html[dir="rtl"] .hr-fab{left:16px}
+  .hr-fab .lbl,.hr-fab .k{display:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv.pre{opacity:1;transform:none}
@@ -303,6 +330,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     <div>
       <div class="hey"><span class="hand">Hey there, I'm</span>
         <svg width="40" height="28" viewBox="0 0 40 28" aria-hidden="true"><path d="M3 4c10 2 22 8 30 20m0 0-9-1m9 1 1-9" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <span class="otw"><i></i><span>Open to work</span></span>
       </div>
       <h1><span class="name">ADHAM</span></h1>
       <svg class="underline" viewBox="0 0 400 40" aria-hidden="true"><path d="M8 26Q110 6 210 22T392 14" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
@@ -360,12 +388,12 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     </div>
     <div class="role-card rv">
       <h3>Flutter Developer Intern — <span class="lime">Huma Volve</span>, Cairo</h3>
-      <p class="when">Mar 2026 – Jul 2026 · Agile team with weekly code reviews by senior developers</p>
+      <p class="when">Mar 2026 – Jul 2026 · Agile team · shipped Grocery App &amp; HabiSpace</p>
       <div class="stats">
-        <div class="stat"><div class="n" data-count="6">6+</div><p>Reusable UI components shared across 2 apps</p></div>
-        <div class="stat"><div class="n" data-count="7">7+</div><p>REST API endpoints integrated with Dio</p></div>
-        <div class="stat"><div class="n" data-count="5">5+</div><p>Feature modules built with Bloc/Cubit</p></div>
-        <div class="stat"><div class="n" data-count="2" data-plain>2</div><p>Apps delivered: Grocery App &amp; HabiSpace</p></div>
+        <div class="stat"><div class="n">Shared UI kit</div><p>6+ reusable components used across 2 apps</p></div>
+        <div class="stat"><div class="n">API layer</div><p>7+ REST endpoints integrated with Dio</p></div>
+        <div class="stat"><div class="n">Bloc / Cubit</div><p>5+ feature modules, logic kept out of the UI</p></div>
+        <div class="stat"><div class="n">Code reviews</div><p>Weekly reviews with senior developers</p></div>
       </div>
     </div>
   </div>
@@ -383,6 +411,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         <p class="desc">Tracks products, receipts, warranty periods and return windows, with calendar reminders before a warranty expires.</p>
         <ul><li>AI receipt scanning backed by 2 Supabase Edge Functions</li><li>Google Sign-In, biometric login and offline mode</li><li>Full Arabic / English localization with skeleton loading</li></ul>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">Clean Architecture</span><span class="chip">Bloc/Cubit</span><span class="chip">Supabase</span><span class="chip">AI / OCR</span><span class="chip">GoRouter</span></div>
+        <a class="code-link" href="https://github.com/adham12121212/sakk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>View code</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="phones">
         <img src="img/sakk_splash.webp" alt="Sakk splash screen" loading="lazy" width="644" height="1344">
@@ -399,6 +428,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         <p class="desc">Location-based ordering with a full cart-to-checkout flow across 15+ screens, built with Clean Architecture.</p>
         <ul><li>3 sign-in methods: email, Google and Facebook</li><li>Google Maps and Geolocator for the delivery location</li><li>Typed API layer with Retrofit and Dio</li></ul>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">Firebase Auth</span><span class="chip">Google Maps</span><span class="chip">Retrofit</span><span class="chip">Dio</span><span class="chip">Bloc/Cubit</span></div>
+        <a class="code-link" href="https://github.com/adham12121212/delivery_app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>View code</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="phones">
         <img src="img/del_home.webp" alt="Delivery app home screen" loading="lazy" width="644" height="1344">
@@ -415,6 +445,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         <p class="desc">Two dashboards — Patient and Doctor — managing 15+ doctor and patient profiles in Cloud Firestore.</p>
         <ul><li>Separate role-based flows for patients and doctors</li><li>Profile image uploads to Supabase Storage</li><li>Clean Architecture with Bloc/Cubit</li></ul>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">Firebase Auth</span><span class="chip">Cloud Firestore</span><span class="chip">Supabase Storage</span><span class="chip">Bloc/Cubit</span></div>
+        <a class="code-link" href="https://github.com/adham12121212/doctor_booking_app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>View code</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="phones">
         <img src="img/doc_home.webp" alt="Doctor booking home screen" loading="lazy" width="644" height="1344">
@@ -431,6 +462,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         <p class="desc">Map-based property search with 3D previews, push notifications and in-app payments.</p>
         <ul><li>Property search on an interactive map (flutter_map)</li><li>Push notifications with FCM and deep linking</li><li>Stripe-powered payments</li></ul>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">FCM</span><span class="chip">Bloc/Cubit</span><span class="chip">GoRouter</span><span class="chip">flutter_map</span><span class="chip">Stripe</span></div>
+        <a class="code-link" href="https://github.com/apdo2005/HabiSpace" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>View code</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="phones">
         <img src="img/habi_splash.webp" alt="HabiSpace splash screen" loading="lazy" width="644" height="1344">
@@ -447,6 +479,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
         <p class="desc">OTP sign-in and image uploads, backed by a CI pipeline that tests every push.</p>
         <ul><li>OTP authentication with Pinput</li><li>Secure Storage, GetIt DI and skeleton loading</li><li>Unit and widget tests on every push</li></ul>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">Bloc/Cubit</span><span class="chip">Dio</span><span class="chip">GoRouter</span><span class="chip">GetIt</span><span class="chip">GitHub Actions</span></div>
+        <a class="code-link" href="https://github.com/Elfouly282/grocery2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>View code</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="pipeline" aria-label="CI/CD pipeline: analyze, test, build">
         <p class="hand">CI/CD pipeline · GitHub Actions</p>
@@ -470,11 +503,6 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
       <div class="sk rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Auth &amp; Security</h3><p>Email/Password · Google &amp; Facebook Sign-In · OTP · Biometric login</p></div>
       <div class="sk rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Maps, AI &amp; Payments</h3><p>Google Maps · Geolocator · flutter_map · AI receipt scanning (OCR) · Stripe</p></div>
       <div class="sk rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div><h3>Quality &amp; Tools</h3><p>Unit &amp; widget tests · GitHub Actions · Git · Postman · Agile/Scrum</p></div>
-    </div>
-    <div class="edu">
-      <div class="rv"><b>2019 – 2023</b><span>BSc Computer Science — MTI University, Cairo</span></div>
-      <div class="rv"><b>2025</b><span>Flutter Development Bootcamp — e_Youth (remote)</span></div>
-      <div class="rv"><b>2026</b><span>Flutter Developer Intern — Huma Volve</span></div>
     </div>
   </div>
 </section>
@@ -604,7 +632,8 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     "Location":"الموقع","Cairo, Egypt":"القاهرة، مصر","Education":"التعليم","BSc Computer Science, MTI University":"بكالوريوس علوم الحاسب، جامعة MTI","Training":"التدريب","Flutter Bootcamp, e_Youth (2025)":"Flutter Bootcamp من e_Youth (2025)","Languages":"اللغات","Arabic (native) · English (B2)":"العربية (اللغة الأم) · الإنجليزية (B2)",
     "where I've worked":"اشتغلت فين",
     "Flutter Developer Intern — Huma Volve, Cairo":"متدرّب مطوّر Flutter — <span class=\"lime\">Huma Volve</span>، القاهرة",
-    "Mar 2026 – Jul 2026 · Agile team with weekly code reviews by senior developers":"مارس 2026 – يوليو 2026 · فريق Agile مع code review أسبوعي من مطورين Senior",
+    "Mar 2026 – Jul 2026 · Agile team · shipped Grocery App & HabiSpace":"مارس 2026 – يوليو 2026 · فريق Agile · سلّمنا Grocery App و HabiSpace",
+    "Shared UI kit":"UI Kit مشترك","6+ reusable components used across 2 apps":"أكتر من 6 مكونات بتتعاد في تطبيقين","API layer":"طبقة الـ API","7+ REST endpoints integrated with Dio":"أكتر من 7 REST endpoints اتربطت بـ Dio","5+ feature modules, logic kept out of the UI":"أكتر من 5 feature modules والـ logic بعيد عن الـ UI","Code reviews":"Code Review","Weekly reviews with senior developers":"مراجعة أسبوعية مع مطورين Senior","View code":"شوف الكود","Open to work":"متاح للعمل",
     "Reusable UI components shared across 2 apps":"مكوّن UI بيتعاد استخدامه في تطبيقين","REST API endpoints integrated with Dio":"REST API endpoint اتربطت بـ Dio","Feature modules built with Bloc/Cubit":"Feature module اتبنت بـ Bloc/Cubit","Apps delivered: Grocery App & HabiSpace":"تطبيقين اتسلّموا: Grocery App و HabiSpace",
     "what I built":"اللي بنيته","Featured projects":"أبرز المشاريع",
     "01 — personal project":"01 — مشروع شخصي","02 — personal project":"02 — مشروع شخصي","03 — personal project":"03 — مشروع شخصي","04 — internship project · Huma Volve":"04 — مشروع تدريب · Huma Volve","05 — internship project · Huma Volve":"05 — مشروع تدريب · Huma Volve",
@@ -694,25 +723,25 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     document.body.appendChild(boot);
     var pre = boot.querySelector('#bootTxt');
     var lines = [
-      ['<span class="c">$</span> flutter run -d chrome', 260],
-      ['<span class="dim">Launching lib/main.dart on Chrome in release mode...</span>', 220],
-      ['Resolving dependencies... <span class="ok">✓</span>', 200],
-      ['Compiling <span class="c">Adham Bassiouny</span> — Flutter Developer', 240],
-      ['<span class="ok">✓ Built build/web</span> <span class="dim">(1.2s)</span>', 220],
-      ['', 60],
-      ['Flutter run key commands.', 120],
-      ['<span class="c">r</span> Hot reload. 🔥', 380]
+      ['<span class="c">$</span> flutter run -d chrome', 110],
+      ['<span class="dim">Launching lib/main.dart on Chrome in release mode...</span>', 90],
+      ['Resolving dependencies... <span class="ok">✓</span>', 80],
+      ['Compiling <span class="c">Adham Bassiouny</span> — Flutter Developer', 90],
+      ['<span class="ok">✓ Built build/web</span> <span class="dim">(1.2s)</span>', 90],
+      ['', 30],
+      ['Flutter run key commands.', 60],
+      ['<span class="c">r</span> Hot reload. 🔥', 160]
     ];
     var html = '', n = 0, done = false;
     function finish(){ if (done) return; done = true; boot.classList.add('out'); setTimeout(function(){ boot.remove(); }, 500); }
     (function next(){
       if (done) return;
-      if (n >= lines.length) return setTimeout(finish, 250);
+      if (n >= lines.length) return setTimeout(finish, 60);
       html += lines[n][0] + '\n'; pre.innerHTML = html + '<span class="cur"></span>';
       setTimeout(next, lines[n++][1]);
     })();
     boot.addEventListener('click', finish);
-    setTimeout(finish, 4000);
+    setTimeout(finish, 2200);
   }
 })();
 </script>
