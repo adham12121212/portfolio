@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Outfit:wght@300..800&family=Permanent+Marker&family=Lalezar&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Single deep-teal world with a cream accent; brush display type over a clean sans. Layout: loose, collage-like sections on a 1200px column. */
-  --bg:#1B4B5A; --bg-2:#215667; --card:#255D6F; --chip:#2C6779; --line:#3E7C8E;
-  --lime:#EDE6C4; --ink:#F4F1E4; --muted:#A9C6CF; --on-lime:#143E4B;
+  /* Single bright-blue world with a white accent; brush display type over a clean sans. Layout: loose, collage-like sections on a 1200px column. */
+  --bg:#0A6CC4; --bg-2:#0B78D6; --card:#1680DB; --chip:#2A8EE3; --line:#4AA3EA;
+  --lime:#FFFFFF; --ink:#F5FAFF; --muted:#E2EFFB; --on-lime:#0D2B57;
   --display:'Permanent Marker', 'Comic Sans MS', cursive;
   --hand:'Caveat Brush', 'Segoe Print', cursive;
   --body:'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -182,8 +182,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 
 /* light mode (Hot Reload) */
-html[data-mode="light"]{--bg:#F4F1E4;--bg-2:#EAE3C9;--card:#FFFCF2;--chip:#DCEBEF;--line:#C5D6DB;--lime:#1B4B5A;--ink:#143E4B;--muted:#4C6D77;--on-lime:#F4F1E4;color-scheme:light}
-html[data-mode="light"] .phones img,html[data-mode="light"] .stage .char{filter:drop-shadow(0 18px 24px rgba(20,62,75,.25))}
+html[data-mode="light"]{--bg:#F5FAFF;--bg-2:#E3F0FC;--card:#FFFFFF;--chip:#DCEBFA;--line:#BBD6F2;--lime:#0A6CC4;--ink:#0D2B57;--muted:#3D5F86;--on-lime:#FFFFFF;color-scheme:light}
+html[data-mode="light"] .phones img,html[data-mode="light"] .stage .char{filter:drop-shadow(0 18px 24px rgba(13,43,87,.25))}
 /* Arabic */
 html[lang="ar"]{--display:'Lalezar','Permanent Marker',cursive;--hand:'Lalezar','Caveat Brush',cursive;--body:'Tajawal','Outfit',system-ui,sans-serif}
 html[lang="ar"] .hero h1{letter-spacing:0}
@@ -202,25 +202,25 @@ html[dir="rtl"] a.cl:hover{transform:translateX(-8px)}
 .hr-fab svg{width:20px;height:20px;fill:currentColor}
 .hr-fab .k{font-size:12px;opacity:.75;border:1.5px solid currentColor;border-radius:6px;padding:0 6px;line-height:18px}
 html[dir="rtl"] .hr-fab{right:auto;left:20px}
-.flash{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--fx,95%) var(--fy,95%),#FFF8DC 0,rgba(237,230,196,.85) 25%,transparent 70%)}
+.flash{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--fx,95%) var(--fy,95%),#FFFFFF 0,rgba(255,255,255,.85) 25%,transparent 70%)}
 .flash.go{animation:flash .6s ease-out}
 .jolt header,.jolt section{animation:jolt .45s cubic-bezier(.3,1.6,.5,1)}
-.toast{position:fixed;left:50%;bottom:90px;z-index:95;transform:translate(-50%,20px);opacity:0;background:#0E2A33;color:#EDE6C4;font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:12px 18px;border-radius:12px;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;unicode-bidi:plaintext;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.toast{position:fixed;left:50%;bottom:90px;z-index:95;transform:translate(-50%,20px);opacity:0;background:#08213F;color:#FFFFFF;font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:12px 18px;border-radius:12px;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;unicode-bidi:plaintext;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @keyframes flash{0%{opacity:1}100%{opacity:0}}
 @keyframes jolt{0%{transform:translateY(0)}35%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 
 /* flutter run boot screen */
-#boot{position:fixed;inset:0;z-index:100;background:#0E2A33;color:#D6E4E8;direction:ltr;font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;transition:opacity .45s,transform .45s}
+#boot{position:fixed;inset:0;z-index:100;background:#08213F;color:#DCE9F7;direction:ltr;font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;transition:opacity .45s,transform .45s}
 #boot.out{opacity:0;transform:scale(1.04);pointer-events:none}
-#boot .term{width:min(640px,100%);background:#0A2129;border:1px solid #2C6779;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-#boot .bar{display:flex;gap:7px;padding:12px 14px;background:#12333E;align-items:center}
-#boot .bar i{width:11px;height:11px;border-radius:50%;background:#3E7C8E}
-#boot .bar span{margin-left:10px;color:#7FA3AE;font-size:12px}
+#boot .term{width:min(640px,100%);background:#061A33;border:1px solid #2A8EE3;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#boot .bar{display:flex;gap:7px;padding:12px 14px;background:#0C2C52;align-items:center}
+#boot .bar i{width:11px;height:11px;border-radius:50%;background:#4AA3EA}
+#boot .bar span{margin-left:10px;color:#8FB4DD;font-size:12px}
 #boot pre{padding:18px 20px;min-height:220px;white-space:pre-wrap;word-break:break-word;margin:0;font:inherit}
-#boot .ok{color:#8FE0B0}#boot .c{color:#EDE6C4}#boot .dim{color:#7FA3AE}
-#boot .cur{display:inline-block;width:8px;height:15px;background:#EDE6C4;vertical-align:-2px;animation:caret 1s steps(1) infinite}
-#boot .skip{color:#7FA3AE;font:14px 'Outfit',system-ui,sans-serif;background:none;border:none;cursor:pointer;text-decoration:underline}
+#boot .ok{color:#8FE0B0}#boot .c{color:#FFFFFF}#boot .dim{color:#8FB4DD}
+#boot .cur{display:inline-block;width:8px;height:15px;background:#FFFFFF;vertical-align:-2px;animation:caret 1s steps(1) infinite}
+#boot .skip{color:#8FB4DD;font:14px 'Outfit',system-ui,sans-serif;background:none;border:none;cursor:pointer;text-decoration:underline}
 
 /* waving character */
 .hero .stage{cursor:pointer}
@@ -295,14 +295,14 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
 </nav>
 
 <header class="hero" id="top">
-  <svg class="deco splash" viewBox="0 0 300 300" aria-hidden="true"><path d="M150 20C220 10 290 70 270 140c-15 60 20 100-40 135-60 30-110-15-150-5-50 10-75-50-55-100 15-40-15-80 25-110 30-25 60-35 100-40z" fill="#EDE6C4" opacity=".16"/></svg>
+  <svg class="deco splash" viewBox="0 0 300 300" aria-hidden="true"><path d="M150 20C220 10 290 70 270 140c-15 60 20 100-40 135-60 30-110-15-150-5-50 10-75-50-55-100 15-40-15-80 25-110 30-25 60-35 100-40z" fill="#FFFFFF" opacity=".16"/></svg>
   <div class="wrap">
     <div>
       <div class="hey"><span class="hand">Hey there, I'm</span>
-        <svg width="40" height="28" viewBox="0 0 40 28" aria-hidden="true"><path d="M3 4c10 2 22 8 30 20m0 0-9-1m9 1 1-9" stroke="#EDE6C4" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <svg width="40" height="28" viewBox="0 0 40 28" aria-hidden="true"><path d="M3 4c10 2 22 8 30 20m0 0-9-1m9 1 1-9" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
       </div>
       <h1><span class="name">ADHAM</span></h1>
-      <svg class="underline" viewBox="0 0 400 40" aria-hidden="true"><path d="M8 26Q110 6 210 22T392 14" stroke="#EDE6C4" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+      <svg class="underline" viewBox="0 0 400 40" aria-hidden="true"><path d="M8 26Q110 6 210 22T392 14" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
       <p class="role"><span>Flutter Developer ·</span> <span class="typed" id="typed">Clean Architecture</span></p>
       <p class="lead">I build cross-platform mobile apps for Android and iOS with Flutter and Dart — clean, testable code with Bloc/Cubit, REST APIs, Firebase and Supabase. Based in Cairo, Egypt.</p>
       <div class="cta">
@@ -317,8 +317,8 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
       <img class="char" src="img/character.webp" alt="3D cartoon avatar of Adham wearing a Flutter t-shirt" width="580" height="1486">
       <div class="bubble"><span class="b1">Let's build something awesome!</span><span class="b2">Hi there!</span></div>
       <span class="wave" aria-hidden="true">👋</span>
-      <svg class="deco star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z" fill="#EDE6C4"/></svg>
-      <svg class="deco squig" viewBox="0 0 200 60" aria-hidden="true"><path d="M5 40C30 5 50 55 75 25s45-20 65 10 45 15 55-20" stroke="#EDE6C4" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+      <svg class="deco star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z" fill="#FFFFFF"/></svg>
+      <svg class="deco squig" viewBox="0 0 200 60" aria-hidden="true"><path d="M5 40C30 5 50 55 75 25s45-20 65 10 45 15 55-20" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
     </div>
   </div>
 </header>
