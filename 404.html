@@ -29,7 +29,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
 .wrap{width:min(1100px,100% - 40px);margin-inline:auto}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:'Permanent Marker',cursive;font-size:28px;text-decoration:none}
+.logo{font-family:'Permanent Marker',cursive;font-size:28px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;direction:ltr}
 .logo span{color:var(--lime)}
 main{flex:1;display:flex;align-items:center;padding:24px 0 56px;position:relative;overflow:clip}
 main .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;position:relative;z-index:1}
@@ -80,7 +80,7 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="logo" href="/portfolio/">Adham<span>.</span></a></div></nav>
+<nav><div class="wrap"><a class="logo" href="/portfolio/"><img src="/portfolio/img/avatar.webp" alt="" width="40" height="40" style="width:40px;height:40px;border-radius:50%">Adham<span>.</span></a></div></nav>
 <main>
   <div class="codefx" aria-hidden="true">
     <span style="left:5%;top:10%">GoRouter</span><span style="left:58%;top:6%;animation-delay:-3s">context.go('/')</span>

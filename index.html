@@ -49,7 +49,9 @@ section{padding:clamp(64px,10vw,120px) 0}
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
 nav.scrolled{border-color:var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
-.logo{font-family:var(--display);font-size:28px;text-decoration:none}
+.logo{font-family:'Permanent Marker',cursive;font-size:28px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;direction:ltr}
+.logo-av{width:40px;height:40px;border-radius:50%;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover .logo-av{transform:rotate(-12deg) scale(1.08)}
 .logo span{color:var(--lime)}
 .links{display:flex;gap:28px;list-style:none}
 .links a{text-decoration:none;color:var(--muted);font-weight:500;position:relative;transition:color .2s}
@@ -312,7 +314,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
 
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="#top">Adham<span>.</span></a>
+    <a class="logo" href="#top"><img class="logo-av" src="img/avatar.webp" alt="" width="40" height="40">Adham<span>.</span></a>
     <ul class="links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
