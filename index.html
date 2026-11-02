@@ -681,6 +681,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
       document.querySelectorAll('h1,h2,h3,h4,p,li,a,span,b,button.copy,div.bubble').forEach(function(el){
         var k = norm(el.textContent), h2 = el.tagName === 'H2' && AR_H2[k], v = h2 || AR[k];
         if (v && el.children.length && !h2 && !RICH[k]) return;
+        if (el.classList.contains('logo')) return;
         if (v){ saved.push([el, el.innerHTML]); el.innerHTML = v; }
       });
       root.lang = 'ar'; root.dir = 'rtl'; document.title = titles.ar;
