@@ -255,6 +255,10 @@ html[dir="rtl"] .hr-fab{right:auto;left:20px}
 .hero .stage:hover .wave,.hero .stage.waving .wave{opacity:1;transform:scale(1);animation:wave 1s ease-in-out infinite}
 .hero .stage:hover .char,.hero .stage.waving .char{animation:hop 1s ease-in-out infinite}
 .bubble .b2{display:none}
+.stage .char{transition:opacity .22s ease}
+.hero .stage .char-wave{opacity:0}
+.hero .stage:hover .char-wave,.hero .stage.waving .char-wave{opacity:1}
+.hero .stage:hover .char:not(.char-wave),.hero .stage.waving .char:not(.char-wave){opacity:0}
 .hero .stage:hover .bubble .b1,.hero .stage.waving .bubble .b1{display:none}
 .hero .stage:hover .bubble .b2,.hero .stage.waving .bubble .b2{display:inline}
 @keyframes wave{0%,100%{transform:rotate(0)}20%{transform:rotate(24deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(20deg)}80%{transform:rotate(-6deg)}}
@@ -356,9 +360,9 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     </div>
     <div class="stage">
       <div class="blob"></div>
-      <img class="char" src="img/character.webp" alt="3D cartoon avatar of Adham wearing a Flutter t-shirt" width="580" height="1486">
+      <img class="char" src="img/character.webp" alt="3D cartoon avatar of Adham wearing a Flutter t-shirt" width="708" height="1486">
+      <img class="char char-wave" src="img/character-wave.webp" alt="" width="708" height="1486">
       <div class="bubble"><span class="b1">Let's build something awesome!</span><span class="b2">Hi there!</span></div>
-      <span class="wave" aria-hidden="true">👋</span>
     </div>
   </div>
 </header>
@@ -530,7 +534,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     </div>
     <div class="stage">
       <div class="blob"></div>
-      <img class="char" src="img/character.webp" alt="" width="580" height="1486" loading="lazy">
+      <img class="char" src="img/character.webp" alt="" width="708" height="1486" loading="lazy">
       <div class="bubble">Thank you!</div>
     </div>
   </div>
