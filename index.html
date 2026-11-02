@@ -61,6 +61,7 @@ nav .tools{gap:12px}
 .logo-t span{color:var(--lime)}
 .logo-t{line-height:1;padding-top:4px;white-space:nowrap}
 html[dir="rtl"] .logo{flex-direction:row-reverse}
+html[lang="ar"] .logo-t{font-family:'Marhey','Permanent Marker',cursive;font-weight:700;direction:rtl;padding-top:0}
 .underline path,.hey svg path,.squig path{stroke:var(--lime)}
 .links{display:flex;gap:28px;list-style:none}
 .links a{text-decoration:none;color:var(--muted);font-weight:500;position:relative;transition:color .2s}
@@ -629,6 +630,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
   var AR = {
     "About":"عني","Experience":"الخبرة","Projects":"المشاريع","Skills":"المهارات","Contact":"تواصل","Hire me":"وظّفني",
     "Hey there, I'm":"أهلاً، أنا",
+    "Adham.":"أدهم<span>.</span>",
     "ADHAM":"<span class=\"name\">أدهم</span>",
     "Flutter Developer ·":"مطوّر Flutter ·",
     "I build cross-platform mobile apps for Android and iOS with Flutter and Dart — clean, testable code with Bloc/Cubit, REST APIs, Firebase and Supabase. Based in Cairo, Egypt.":"أبني تطبيقات موبايل لأندرويد و iOS باستخدام Flutter و Dart — كود نظيف وسهل الاختبار مع Bloc/Cubit و REST APIs و Firebase و Supabase. مقيم في القاهرة، مصر.",
@@ -666,7 +668,7 @@ html[dir="rtl"] .peek:hover,html[dir="rtl"] .peek:focus-visible{transform:transl
     "© 2026 Adham Bassiouny":"© 2026 أدهم بسيوني","Built with care in Cairo · Flutter Developer":"معمول بحب في القاهرة · مطوّر Flutter"
   };
   var AR_H2 = {"Let's build something awesome!":"يلا نبني حاجة <span class=\"lime\">تجنن!</span>"};
-  var RICH = {"ADHAM":1,"Flutter Developer Intern — Huma Volve, Cairo":1};
+  var RICH = {"Adham.":1,"ADHAM":1,"Flutter Developer Intern — Huma Volve, Cairo":1};
   var saved = [];
   var norm = function(t){ return t.replace(/\s+/g,' ').trim(); };
   var titles = {en:document.title, ar:'أدهم بسيوني — مطوّر Flutter'};
